@@ -24,6 +24,24 @@ const getCustomerById = (req, res) => {
   });
 };
 
+// showCustomerPurchaseHistory
+const showCustomerPurchaseHistory = (req, res) => {
+  pool.query(
+    `SELECT * FROM Yingineering.customer customers.id, customers.first_name. product_name, price FROM Yingineering.product 
+      JOIN customers 
+      WHERE products.user_id = ${req.params.id} 
+      AND
+      customers.id = ${req.params.id}`,
+    (err, row) => {
+      if (err) {
+        console.log({ message: "Error occurred: " + err });
+        return res.status(500).send("An unexpected error occurred");
+      }
+      res.json(row);
+    }
+  );
+};
+
 const createCustomer = (req, res) => {
   let body = req.body; 
   
@@ -105,4 +123,5 @@ module.exports = {
   createCustomer,
   updateCustomerById,
   deleteCustomerById,
+  showCustomerPurchaseHistory
 };

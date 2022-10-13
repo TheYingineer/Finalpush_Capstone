@@ -2,3 +2,4 @@
 .env
 
 # git config core.autocrlf true
+.vercel
