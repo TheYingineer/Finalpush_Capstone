@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 const customerRoutes = require("./routes/customerRoutes");
 const productRoutes = require("./routes/productRoutes");
 const purchaseHistoryRoutes = require("./routes/purchaseHistoryRoutes");
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(customerRoutes);
 app.use(productRoutes);
 app.use(purchaseHistoryRoutes);
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send("Hello from Index!");

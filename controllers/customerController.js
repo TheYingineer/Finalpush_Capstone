@@ -25,8 +25,12 @@ const getCustomerById = (req, res) => {
 };
 
 const createCustomer = (req, res) => {
-  let body = req.body; // this line basically request what's on the database and retreive the entire body of data.
+  let body = req.body; 
+  
+  // this line basically request what's on the database and retreive the entire body of data.
+
   // INSERT INTO USERS FIRST AND LAST NAME
+  
   let sql =
     "INSERT INTO Yingineering.customer (customer_id, first_name, last_name, phone_number, address, city, state, zipcode, email) VALUES  (?,?,?,?,?,?,?,?,?); ";
   // WHAT GOES IN THE BRACKETS
@@ -41,10 +45,16 @@ const createCustomer = (req, res) => {
     body.email,
   ]); // entire body of data from user_id, address, city, county, state and zip
 
-  pool.query(sql, (err, results) => {
-    if (err) return handleSQLError(res, err);
-    return res.json({ newId: results.insertId });
-  });
+  // pool.query(
+  //   "INSERT INTO Yingineering.customer (customer_id, first_name, last_name, phone_number, address, city, state, zipcode, email) VALUESS
+  //   ('.mysql_real_escape_string($customer_id.')",   
+  // (err, results) => {
+  //   if (err) {
+  //     console.log({message: "Error occured: " + err});
+  //   return res.status(500).send("An unexpected error occurred");
+  //  }
+  //  res.json(rows);
+  // });
 };
 
 const updateCustomerById = (req, res) => {
