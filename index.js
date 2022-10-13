@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const customerRoutes = require("./routes/customerRoutes");
 const productRoutes = require("./routes/productRoutes");
 const purchaseHistoryRoutes = require("./routes/purchaseHistoryRoutes");
+const cors = require('cors');
 // const { customers, trades } = require("./data/data_customer.js");
 //customers & trades are two categories that need both controller and routers
 
@@ -13,7 +14,7 @@ app.use(customerRoutes);
 app.use(productRoutes);
 app.use(purchaseHistoryRoutes);
 app.use(bodyParser.json());
-
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Hello from Index!");
 });
