@@ -4,14 +4,14 @@ const customerRoutes = require("./routes/customerRoutes");
 const productRoutes = require("./routes/productRoutes");
 const purchaseHistoryRoutes = require("./routes/purchaseHistoryRoutes");
 const cors = require("cors");
-const corsOptions = {
-  origin: "*",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-}; // const { customers, trades } = require("./data/data_customer.js");
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+// }; // const { customers, trades } = require("./data/data_customer.js");
 //customers & trades are two categories that need both controller and routers
 const app = express();
-app.use(cors(corsOptions)); // Use this after the variable declaration
+app.use(cors()); // Use this after the variable declaration
 
 const PORT = process.env.PORT || 5000;
 app.use(express.json());
