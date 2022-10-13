@@ -1,4 +1,4 @@
-// const { customers } = require("../data/data_customer.js");
+const { customers } = require("../data/data_customer.js");
 const pool = require("../sql/connection");
 const mysql = require("mysql");
 const { handleSQLError } = require("../sql/error"); // in order to use this line, you must have an error.js under sql folder
